@@ -1,132 +1,149 @@
-# Refactoring Regression Pipeline with GenAI
 
-Refactoring my [First Pipeline](https://github.com/blaQPablo88/First_Pipeline_Python) project using GenAI engineering principles to improve modularity, readability, and performance.
+# Regression-Pipeline-with-GenAI
 
----
-
-## Acknowledgements
-
-This project is inspired by and based on the work by [Yash Sahu](https://www.kaggle.com/code/yashsahu02/drw-crypto-market-prediction) on Kaggle.
-
-Credit to the original author for the initial data exploration, model experimentation, and notebook structure.
-
-This refactor focuses on improving modularity, maintainability, and scalability using GenAI best practices.
-
-## Installation Guide
-
-### ✅ Required Libraries
-
-Install the following modules using `pip` (run in terminal or inside your virtual environment):
-
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn xgboost lightgbm catboost pyarrow kaggle
-```
-
-> ⚠️ Make sure you install all dependencies **before running the scripts**.
+A comprehensive end-to-end regression modeling pipeline for a Kaggle competition, refactored using GenAI engineering principles.  
+The pipeline extracts data, transforms it through preprocessing and feature selection, and trains multiple regression models to predict a continuous target.
 
 ---
 
-### ✅ System-Level Installation
+## Key Features
 
-**Numpy (System Install)**  
-Refer to [numpy.org/install](https://numpy.org/install)
-
-- **Windows:**
-  ```bash
-  choco install numpy
-  ```
-
-- **Linux:**
-  ```bash
-  sudo apt install python3-numpy
-  ```
-
-> Test numpy install:
-```python
-import numpy as np
-print(np.__version__)
-```
+- Modular pipeline using reusable scripts
+- Load `.parquet` and `.csv` data formats
+- Cleans and preprocesses raw data
+- Feature selection using `SelectKBest`
+- Model training and evaluation using multiple regressors
+- Saves predictions for submission
+- Summary of model performance written to `.csv`
 
 ---
 
-## What’s a `.parquet` File?
+## Technologies Used
 
-A `.parquet` file is a highly efficient, column-based storage format used in big data environments.
+- [Python 3.10+](https://www.python.org/)
+- [pandas](https://pandas.pydata.org/)
+- [numpy](https://numpy.org/)
+- [scikit-learn](https://scikit-learn.org/stable/)
 
-### Why Use Parquet?
-- **Columnar Format:** Optimized for analytics and queries
-- **Efficient Compression:** Smaller file sizes than CSV
-- **Schema-aware:** Retains data types and structure
-- **Performance:** Faster reading when you only need some columns
+> This project is designed for tabular regression tasks using open Kaggle datasets.
 
-Used heavily with tools like Pandas, PyArrow, Spark, and in ML workflows.
+---
+
+## Installation Instructions
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/blaQPablo88/Refactoring-Regression-Pipeline-with-GenAI
+   ```
+
+2. **Install required packages:**
+
+   ```bash
+   pip install numpy pandas scikit-learn pyarrow
+   ```
+
+3. **Ensure Kaggle CLI is set up** *(for downloading competition datasets)*
+
+   ```bash
+   pip install kaggle
+   kaggle datasets download -d yashsahu02/drw-crypto-market-prediction
+   ```
+
+4. **Extract and place the data** under:
+
+   ```
+   /kaggle/input/drw-crypto-market-prediction/
+   ```
 
 ---
 
 ## Project Structure
 
 ```
-crypto-regression/
+Regression-Pipeline-with-GenAI/
 │
-├── data/
-│   └── kaggle/                # Raw input data from Kaggle
+├── kaggle/
+│   └── input/
+│       └── drw-crypto-market-prediction/     # Place dataset files here
 │
 ├── models/
-│   └── saved_predictions/     # Output predictions by model
+│   └── saved_predictions/                    # Saved model outputs
 │
 ├── src/
-│   ├── data_loader.py         # Handles data import and preprocessing
-│   ├── preprocessing.py       # Data cleaning and transformation
-│   ├── feature_selection.py   # SelectKBest or other techniques
-│   ├── train_models.py        # Train & evaluate models
-│   └── utils.py               # Metrics, evaluation, helper functions
+│   ├── data_loader.py                        # Loads .parquet and CSV files
+│   ├── preprocessing.py                      # Cleans and scales data
+│   ├── feature_selection.py                  # Feature selection using SelectKBest
+│   ├── train_models.py                       # Training and evaluating models
+│   └── utils.py                              # Evaluation metrics
 │
-├── main.py                    # Main orchestration script
-└── README.md                  # You are here!
+├── main.py                                   # Orchestrates full pipeline
+└── README.md
 ```
 
 ---
 
-## Data Access
-
-Make sure you have Kaggle CLI configured and authenticated, then download the dataset:
-
-```bash
-pip install kaggle
-kaggle datasets download -d yashsahu02/drw-crypto-market-prediction
-```
-
----
-
-## Running the Project
-
-Once dependencies are installed and data is in place:
+## How to Run
 
 ```bash
 python main.py
 ```
 
 This will:
-- Load the dataset
-- Clean and preprocess the data
-- Select features
-- Train models (e.g., Linear Regression, XGBoost)
-- Save predictions for submission
+
+1. Load the Kaggle dataset
+2. Clean and scale the data
+3. Select the top 200 features
+4. Train and evaluate two linear regression models
+5. Save predictions and a summary file
 
 ---
 
-## Outputs
+## Configuration Options
 
-- Model evaluation metrics printed in console
-- `.csv` prediction files per model (saved in `models/saved_predictions/`)
-- `model_performance_summary.csv` for comparison of algorithms
+Edit `main.py` to:
 
----
-
-## Powered by GenAI Refactor Principles
-
-This project demonstrates how AI-assisted refactoring can improve a raw ML script into a clean, modular, maintainable pipeline.
+- Change dataset paths
+- Select more/less features (`k` in `SelectKBest`)
+- Add/remove regression models from the `models` dictionary
+- Switch scaling methods
 
 ---
 
-Created by Kagiso (blaQPablo88) using GenAI.
+## Troubleshooting
+
+| Issue | Fix |
+|------|------|
+| `FileNotFoundError` when loading `.parquet` | Ensure dataset is placed under `/kaggle/input/drw-crypto-market-prediction/` |
+| `pyarrow` not found | Run `pip install pyarrow` |
+| Feature mismatch errors during prediction | Ensure `test_df` only contains selected columns |
+
+---
+
+## Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch (`feature/my-feature`)
+3. Make your changes
+4. Submit a pull request
+
+---
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## Acknowledgements
+
+This project is inspired by and based on [Yash Sahu's notebook on Kaggle](https://www.kaggle.com/code/yashsahu02/drw-crypto-market-prediction).  
+Credit to the original author for data exploration, modeling flow, and base structure.
+
+This refactor emphasizes **modularity, scalability, and maintainability** through GenAI principles.
+
+---
+
+Built by Kagiso ([@blaQPablo88](https://github.com/blaQPablo88)) using GenAI assistance.
