@@ -1,3 +1,5 @@
+import os
+
 from src.data_loader import load_data
 from src.preprocessing import clean_infinite_values, standard_scale
 from src.feature_selection import select_features
