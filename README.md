@@ -4,9 +4,7 @@ Refactoring my [First Pipeline](https://github.com/blaQPablo88/First_Pipeline_Py
 
 ---
 
----
-
-## 🙏 Acknowledgements
+## Acknowledgements
 
 This project is inspired by and based on the work by [Yash Sahu](https://www.kaggle.com/code/yashsahu02/drw-crypto-market-prediction) on Kaggle.
 
@@ -14,7 +12,7 @@ Credit to the original author for the initial data exploration, model experiment
 
 This refactor focuses on improving modularity, maintainability, and scalability using GenAI best practices.
 
-## 📦 Installation Guide
+## Installation Guide
 
 ### ✅ Required Libraries
 
@@ -51,11 +49,11 @@ print(np.__version__)
 
 ---
 
-## 🧾 What’s a `.parquet` File?
+## What’s a `.parquet` File?
 
 A `.parquet` file is a highly efficient, column-based storage format used in big data environments.
 
-### 🔍 Why Use Parquet?
+### Why Use Parquet?
 - **Columnar Format:** Optimized for analytics and queries
 - **Efficient Compression:** Smaller file sizes than CSV
 - **Schema-aware:** Retains data types and structure
@@ -65,7 +63,7 @@ Used heavily with tools like Pandas, PyArrow, Spark, and in ML workflows.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 crypto-regression/
@@ -84,12 +82,12 @@ crypto-regression/
 │   └── utils.py               # Metrics, evaluation, helper functions
 │
 ├── main.py                    # Main orchestration script
-└── README.md                  # You are here 📘
+└── README.md                  # You are here!
 ```
 
 ---
 
-## 📥 Data Access
+## Data Access
 
 Make sure you have Kaggle CLI configured and authenticated, then download the dataset:
 
@@ -100,7 +98,7 @@ kaggle datasets download -d yashsahu02/drw-crypto-market-prediction
 
 ---
 
-## 🚀 Running the Project
+## Running the Project
 
 Once dependencies are installed and data is in place:
 
@@ -117,7 +115,7 @@ This will:
 
 ---
 
-## 📊 Outputs
+## Outputs
 
 - Model evaluation metrics printed in console
 - `.csv` prediction files per model (saved in `models/saved_predictions/`)
@@ -125,18 +123,10 @@ This will:
 
 ---
 
-## 🧠 Powered by GenAI Refactor Principles
+## Powered by GenAI Refactor Principles
 
 This project demonstrates how AI-assisted refactoring can improve a raw ML script into a clean, modular, maintainable pipeline.
 
 ---
 
-## 📌 To-Do (Next Steps)
-- [ ] Add more regression models
-- [ ] Integrate logging instead of print statements
-- [ ] Unit tests for data loading and evaluation
-- [ ] Deploy via Streamlit or FastAPI
-
----
-
-Created with ❤️ by Kagiso using GenAI.
+Created by Kagiso (blaQPablo88) using GenAI.
