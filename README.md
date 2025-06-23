@@ -35,22 +35,29 @@ The pipeline extracts data, transforms it through preprocessing and feature sele
 
    ```bash
    git clone https://github.com/blaQPablo88/Refactoring-Regression-Pipeline-with-GenAI
+   cd Refactoring-Regression-Pipeline-with-GenAI
+   ```
+2. **Install all required packages (at once):**
+   ```bash
+   pip install -r requirements.txt
    ```
 
-2. **Install required packages:**
+   **OR YOU COULD DO IT INDIVISUALLY**
+
+3. **Install required packages:**
 
    ```bash
    pip install numpy pandas scikit-learn pyarrow
    ```
 
-3. **Ensure Kaggle CLI is set up** *(for downloading competition datasets)*
+4. **Ensure Kaggle CLI is set up** *(for downloading competition datasets)*
 
    ```bash
    pip install kaggle
    kaggle datasets download -d yashsahu02/drw-crypto-market-prediction
    ```
 
-4. **Extract and place the data** under:
+5. **Extract and place the data** under:
 
    ```
    /kaggle/input/drw-crypto-market-prediction/
